@@ -1,5 +1,15 @@
 {
+    "name" : "dqneo/smarty-delimiter-converter",
+    "description" : "a cli tool to convert delimiters in smarty template files",
+    "keywords": [ "smarty", "cli" ],
+    "homepage": "https://github.com/dqneo/smarty-delimiter-converter",
+    "require": {
+        "php" : ">=5.4.0"
+    },
     "require": {
         "smarty/smarty": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
     }
 }
