@@ -6,7 +6,7 @@ convert delimiters from `{` `}` to `{{`  `}}` in your smarty template files.
 
 ```php
 $converter = new Converter();
-echo $converter->convert('hello {$name}'); // => 'hello {{$name}}'
+$converter->convert('hello {$name}'); // => 'hello {{$name}}'
 ```
 
 ```
