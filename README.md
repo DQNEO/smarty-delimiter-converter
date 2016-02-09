@@ -1,4 +1,4 @@
-# smarty-delimiter-converter
+# Smarty Delimiter Converter
 
 convert delimiters from `{` `}` to `{{`  `}}` in your smarty template files.
 
