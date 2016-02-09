@@ -9,7 +9,8 @@ $converter = new Converter();
 $converter->convert('hello {$name}'); // => 'hello {{$name}}'
 ```
 
+Or you can also convert all template files under a directory.
 ```
- convert tpl_files/
+convert tpl_files/
 ```
 
