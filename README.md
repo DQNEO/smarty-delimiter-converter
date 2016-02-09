@@ -1,6 +1,6 @@
 # smarty-delimiter-converter
 
-a tool to convert `{` `}` to `{{` and `}}`
+convert delemiters from `{` `}` to `{{`  `}}` in smarty template files.
 
 # Usage
 
