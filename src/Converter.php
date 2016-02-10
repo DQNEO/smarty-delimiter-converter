@@ -5,6 +5,10 @@ class Converter
 {
     private $leftDelimiter = '{';
     private $rightDelimiter = '}';
+
+    private $newLdelim = '{';
+    private $newRdelim = '}';
+
     public function convert($input)
     {
         if (is_file($input)) {
@@ -16,9 +20,6 @@ class Converter
         $ldq = preg_quote($this->leftDelimiter, '~');
         $rdq = preg_quote($this->rightDelimiter, '~');
 
-        echo $source_content;
-        exit;
-
         /* Gather all template tags. */
         preg_match_all("~{$ldq}(\s*.*?\s*){$rdq}~s", $source_content, $_match);
         $template_tags = $_match[1];
@@ -29,7 +30,7 @@ class Converter
         $ret = '';
         $cnt = count($template_tags);
         for ($i = 0; $i < $cnt; $i++) {
-            $tag = '{' . $template_tags[$i] . '}';
+            $tag =  $this->newLdelim . $template_tags[$i] . $this->newRdelim;
             $ret .= $text_blocks[$i] . $tag;
         }
 
