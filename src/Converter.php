@@ -60,6 +60,10 @@ class Converter
             }
         }
 
+        if (isset($text_blocks[$i])) {
+            $ret .= $text_blocks[$i];
+        }
+
         return $ret;
     }
 }

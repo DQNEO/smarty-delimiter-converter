@@ -37,11 +37,10 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('hello <% $name %>', $converter->convert($text));
     }
 
-    //TODO なんでかわからんが末尾の空白が切られてしまう
     public function test4()
     {
         $converter = new Converter(['{', '}'],['{{', '}}']);
         $text = 'hello { $name } ';
-        $this->assertSame('hello {{ $name }}', $converter->convert($text));
+        $this->assertSame('hello {{ $name }} ', $converter->convert($text));
     }
 }
