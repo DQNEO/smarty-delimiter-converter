@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/DQNEO/smarty-delimiter-converter.svg?branch=master)](https://travis-ci.org/DQNEO/smarty-delimiter-converter)
 
-convert tool to replace delimiters (eg. from `{` `}` to `{{`  `}}` ) in your smarty template files.
+convert tool to replace delimiters (e.g. from `{` `}` to `{{`  `}}`) in your smarty template files.
 
 # DESCRIPTION
 
