@@ -43,4 +43,18 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
         $text = 'hello { $name } ';
         $this->assertSame('hello {{ $name }} ', $converter->convert($text));
     }
+
+    public function test5()
+    {
+        $file = __DIR__ . '/../examples/sample.tpl';
+        $from = ['{','}'];
+        $to = ['{','}'];
+
+        $converter = new Converter($from, $to);
+        $new_content = $converter->convert($file);
+        $org_content = file_get_contents($file);
+
+        $this->assertSame($org_content, $new_content);
+
+    }
 }
