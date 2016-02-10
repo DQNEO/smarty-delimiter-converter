@@ -39,10 +39,10 @@ $to = ['{{', '}}'];
 $converter = new Converter($from, $to);
 
 // convert a content
-$result = $converter->convert('hello {$name}'); // => 'hello {{$name}}'
+$converted = $converter->convert('hello {$name}'); // => 'hello {{$name}}'
 
 # convert a file
-$result = $converter->convert('/path/to/file.tpl'); // returns a converted content
+$converted = $converter->convert('/path/to/file.tpl'); // returns a converted content
 
 ```
 
