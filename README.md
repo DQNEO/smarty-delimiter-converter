@@ -5,12 +5,9 @@ convert delimiters from `{` `}` to `{{`  `}}` in your smarty template files.
 # Usage
 
 ```php
-$converter = new Converter();
-$converter->convert('hello {$name}'); // => 'hello {{$name}}'
-```
-
-Or you can also convert all template files under a directory.
-```
-convert tpl_files/
+$from = ['{','}'];
+$to = ['{{','}}'];
+$converter = new Converter($from, $to);
+$result = $converter->convert('hello {$name}'); // => 'hello {{$name}}'
 ```
 
