@@ -5,7 +5,7 @@ use DQNEO\SmartyDelimiterConverter\Converter;
 
 $file = __DIR__ . '/sample.tpl';
 $from = ['{','}'];
-$to = ['{{','}}'];
+$to = ['{','}'];
 $converter = new Converter($from, $to);
 
 echo $converter->convert($file);
