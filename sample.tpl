@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
 <title>This is a Title はろー</title>
 
-{if $config.smarty_debug }
+{if $config.smarty_debug}
   {debug}
 {/if}
 
