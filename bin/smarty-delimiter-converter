@@ -1,3 +1,25 @@
 #!/usr/bin/env php
 <?php
-echo "hello " .  __FILE__  .  "\n";
+require_once __DIR__  . '/../vendor/autoload.php';
+use DQNEO\SmartyDelimiterConverter\Converter;
+
+if ($argc < 2) {
+    echo "Usage: " . basename(__FILE__) . " <directory>\n";
+    exit;
+}
+$baseDir = $argv[1];
+$iterator = new RecursiveDirectoryIterator($baseDir);
+$iterator = new RecursiveIteratorIterator($iterator);
+
+$from = ['{','}'];
+$to = ['{{','}}'];
+$converter = new Converter($from, $to);
+
+
+foreach ($iterator as $fileinfo) {
+    if ($fileinfo->isFile()) {
+        $filename = $fileinfo->getPathname();
+        $converted = $converter->convert($filename);
+        file_put_contents($filename, $converted);
+    }
+}
