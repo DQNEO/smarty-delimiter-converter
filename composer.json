@@ -14,9 +14,9 @@
         "php" : ">=5.4.0"
     },
     "require": {
-        "smarty/smarty": "2.*"
     },
     "require-dev": {
+        "smarty/smarty": "2.*",
         "phpunit/phpunit": "4.*"
     }
 }
