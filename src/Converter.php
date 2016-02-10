@@ -3,12 +3,20 @@ namespace DQNEO\SmartyDelimiterConverter;
 
 class Converter
 {
-    private $left_dlm = '{';
-    private $right_dlm = '}';
+    private $left_dlm;
+    private $right_dlm;
 
-    private $new_left_dlm = '{{';
-    private $new_right_dlm = '}}';
+    private $new_left_dlm;
+    private $new_right_dlm;
 
+    public function __construct(array $from_pair, array $to_pair)
+    {
+        $this->left_dlm = $from_pair[0];
+        $this->right_dlm = $from_pair[1];
+        $this->new_left_dlm = $to_pair[0];
+        $this->new_right_dlm = $to_pair[1];
+    }
+    
     public function convert($input)
     {
         if (is_file($input)) {
