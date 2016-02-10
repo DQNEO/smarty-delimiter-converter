@@ -10,6 +10,7 @@
             "DQNEO\\SmartyDelimiterConverter\\": "src/"
         }
     },
+    "bin": ["bin/smarty-delimiter-converter"],
     "require": {
         "php" : ">=5.4.0"
     },
