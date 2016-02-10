@@ -40,10 +40,6 @@ class Converter
         $cnt = count($template_tags);
         for ($i = 0; $i < $cnt; $i++) {
             $tag_old = $template_tags[$i];
-            if (preg_match("~\s*literal~", $tag_old)) {
-
-                $is_in_literal = true;
-            }
 
             if ($is_in_literal) {
                 $new_tag =  $this->left_dlm .  $tag_old . $this->right_dlm;
@@ -52,6 +48,12 @@ class Converter
             }
 
             $ret .= $text_blocks[$i] . $new_tag;
+
+            if (preg_match("~\s*literal~", $tag_old)) {
+
+                $is_in_literal = true;
+            }
+
             if (preg_match("~\s*/literal~", $tag_old)) {
 
                 $is_in_literal = false;
