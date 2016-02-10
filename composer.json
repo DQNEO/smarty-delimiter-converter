@@ -1,7 +1,9 @@
 {
     "name" : "dqneo/smarty-delimiter-converter",
     "description" : "a cli tool to convert delimiters in smarty template files",
-    "keywords": [ "smarty", "cli" ],
+    "license": "LGPL-3.0",
+    "type" : "library",
+    "keywords": [ "smarty", "cli" ,"templating"],
     "homepage": "https://github.com/dqneo/smarty-delimiter-converter",
     "autoload" : {
         "psr-4" : {
