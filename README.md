@@ -23,7 +23,7 @@ $converter = new Converter($from, $to);
 $result = $converter->convert('hello {$name}'); // => 'hello {{$name}}'
 
 # convert a file
-$result = $converter->convert('/path/to/file.tpl');
+$result = $converter->convert('/path/to/file.tpl'); // returns a converted content
 
 ```
 
