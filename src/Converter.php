@@ -28,10 +28,20 @@ class Converter
         //var_dump($template_tags, $text_blocks);
 
         $ret = '';
+        $inLiteral = false;
         $cnt = count($template_tags);
         for ($i = 0; $i < $cnt; $i++) {
-            $tag =  $this->newLdelim . $template_tags[$i] . $this->newRdelim;
-            $ret .= $text_blocks[$i] . $tag;
+            $tag_old = $template_tags[$i];
+            if (preg_match("~\s*literal~", $tag_old)) {
+
+                $inLiteral = true;
+            } elseif (preg_match("~\s*/literal~", $tag_old)) {
+
+                $inLiteral = false;
+            }
+
+            $new_tag =  $this->newLdelim . $tag_old . $this->newRdelim;
+            $ret .= $text_blocks[$i] . $new_tag;
         }
 
         return $ret;
