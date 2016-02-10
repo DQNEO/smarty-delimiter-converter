@@ -5,6 +5,8 @@ convert delimiters from `{` `}` to `{{`  `}}` in your smarty template files.
 # Usage
 
 ```php
+use DQNEO\SmartyDelimiterConverter\Converter;
+
 $from = ['{','}'];
 $to = ['{{','}}'];
 $converter = new Converter($from, $to);
