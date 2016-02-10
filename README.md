@@ -1,6 +1,25 @@
 # Smarty Delimiter Converter
 
-convert delimiters from `{` `}` to `{{`  `}}` in your smarty template files.
+convert tool to replace delimiters (eg. from `{` `}` to `{{`  `}}` ) in your smarty template files.
+
+# DESCRIPTION
+
+It converts the content
+```
+{if $config.smarty_debug}
+  {debug}
+{/if}
+```
+
+into this
+
+```
+{{if $config.smarty_debug}}
+  {{debug}}
+{{/if}}
+```
+
+You can customize delimiters as you like.
 
 # INSTALL
 
