@@ -3,11 +3,11 @@ namespace DQNEO\SmartyDelimiterConverter;
 
 class Converter
 {
-    private $leftDelimiter = '{';
-    private $rightDelimiter = '}';
+    private $left_dlm = '{';
+    private $right_dlm = '}';
 
-    private $newLdelim = '{';
-    private $newRdelim = '}';
+    private $new_left_dlm = '{{';
+    private $new_right_dlm = '}}';
 
     public function convert($input)
     {
@@ -17,8 +17,8 @@ class Converter
             $source_content = $input;
         }
 
-        $ldq = preg_quote($this->leftDelimiter, '~');
-        $rdq = preg_quote($this->rightDelimiter, '~');
+        $ldq = preg_quote($this->left_dlm, '~');
+        $rdq = preg_quote($this->right_dlm, '~');
 
         /* Gather all template tags. */
         preg_match_all("~{$ldq}(\s*.*?\s*){$rdq}~s", $source_content, $_match);
@@ -28,20 +28,26 @@ class Converter
         //var_dump($template_tags, $text_blocks);
 
         $ret = '';
-        $inLiteral = false;
+        $is_in_literal = false;
         $cnt = count($template_tags);
         for ($i = 0; $i < $cnt; $i++) {
             $tag_old = $template_tags[$i];
             if (preg_match("~\s*literal~", $tag_old)) {
 
-                $inLiteral = true;
-            } elseif (preg_match("~\s*/literal~", $tag_old)) {
-
-                $inLiteral = false;
+                $is_in_literal = true;
             }
 
-            $new_tag =  $this->newLdelim . $tag_old . $this->newRdelim;
+            if ($is_in_literal) {
+                $new_tag =  $this->left_dlm .  $tag_old . $this->right_dlm;
+            } else {
+                $new_tag =  $this->new_left_dlm . $tag_old . $this->new_right_dlm;
+            }
+
             $ret .= $text_blocks[$i] . $new_tag;
+            if (preg_match("~\s*/literal~", $tag_old)) {
+
+                $is_in_literal = false;
+            }
         }
 
         return $ret;
