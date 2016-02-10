@@ -1,7 +1,6 @@
 #!/usr/bin/env php
 <?php
 require_once  __DIR__ . '/../vendor/autoload.php';
-require_once  __DIR__ . '/../src/Converter.php';
 use DQNEO\SmartyDelimiterConverter\Converter;
 
 $file = __DIR__ . '/sample.tpl';

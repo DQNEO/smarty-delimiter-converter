@@ -3,6 +3,11 @@
     "description" : "a cli tool to convert delimiters in smarty template files",
     "keywords": [ "smarty", "cli" ],
     "homepage": "https://github.com/dqneo/smarty-delimiter-converter",
+    "autoload" : {
+        "psr-4" : {
+            "DQNEO\\SmartyDelimiterConverter\\": "src/"
+        }
+    },
     "require": {
         "php" : ">=5.4.0"
     },
