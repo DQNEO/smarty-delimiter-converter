@@ -39,25 +39,25 @@ class Converter
         $is_in_literal = false;
         $cnt = count($template_tags);
         for ($i = 0; $i < $cnt; $i++) {
-            $tag_old = $template_tags[$i];
+            $tag_bared = $template_tags[$i];
 
-            if ($is_in_literal) {
-                $new_tag =  $this->left_dlm .  $tag_old . $this->right_dlm;
+            if (preg_match("~\s*/literal~", $tag_bared)) {
+                $new_tag =  $this->new_left_dlm . $tag_bared . $this->new_right_dlm;
+                $is_in_literal = false;
+            } elseif (preg_match("~\s*literal~", $tag_bared)) {
+                $new_tag =  $this->new_left_dlm . $tag_bared . $this->new_right_dlm;
+                $is_in_literal = true;
+
             } else {
-                $new_tag =  $this->new_left_dlm . $tag_old . $this->new_right_dlm;
+                if ($is_in_literal) {
+                    $new_tag =  $this->left_dlm .  $tag_bared . $this->right_dlm;
+                } else {
+                    $new_tag =  $this->new_left_dlm . $tag_bared . $this->new_right_dlm;
+                }
             }
 
             $ret .= $text_blocks[$i] . $new_tag;
 
-            if (preg_match("~\s*literal~", $tag_old)) {
-
-                $is_in_literal = true;
-            }
-
-            if (preg_match("~\s*/literal~", $tag_old)) {
-
-                $is_in_literal = false;
-            }
         }
 
         if (isset($text_blocks[$i])) {
