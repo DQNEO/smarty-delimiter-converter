@@ -2,7 +2,13 @@
 
 convert delimiters from `{` `}` to `{{`  `}}` in your smarty template files.
 
-# Usage
+# INSTALL
+
+```
+composer require dqneo/smarty-delimiter-converter
+```
+
+# USAGE
 
 ```php
 use DQNEO\SmartyDelimiterConverter\Converter;
