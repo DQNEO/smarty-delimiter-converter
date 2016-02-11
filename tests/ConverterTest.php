@@ -72,4 +72,12 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(preg_split("/\n/",$new_content_prepared), preg_split("/\n/",$new_content));
 
     }
+
+    public function testComment()
+    {
+        $converter = new Converter(['{', '}'],['{{', '}}']);
+        $text = '{*  foobar  *}';
+        $this->assertSame('{{*  foobar  *}}', $converter->convert($text));
+    }
+
 }
