@@ -48,3 +48,9 @@ $converted = $converter->convert('/path/to/file.tpl'); // returns a converted co
 
 ```
 
+you can convert all template files under a directory recursivlely
+
+```
+./bin/smarty-delimiter-converter /path/to/dir/
+```
+
